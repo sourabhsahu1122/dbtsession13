@@ -1,0 +1,20 @@
+version: 2
+models:
+  - name: raw_customers
+    columns:
+      - name: customer_id
+        description: "The unique identifier for each record"
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: "The name associated with the record"
+        tests:
+          - not_null
+  - name: raw_orders
+    columns:
+      - name: payment_mode
+        description: "The unique identifier for each order"
+        tests:
+          - accepted_values:
+              values: ['online', 'upi']
